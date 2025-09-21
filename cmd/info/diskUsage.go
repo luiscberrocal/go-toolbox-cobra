@@ -22,9 +22,12 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		dbParams := viper.GetStringMapString("db_params")
 		usage := du.NewDiskUsage(".")
-		fmt.Printf("%v\n", usage)
-		fmt.Printf("Default domain: %v", viper.GetString("DEFAULT_DOMAIN"))
+		fmt.Printf("%v\n", usage.Free())
+		fmt.Printf("Default domain: %v\n", viper.GetString("DEFAULT_DOMAIN"))
+		fmt.Printf("Params: %v", dbParams["username"])
+
 	},
 }
 

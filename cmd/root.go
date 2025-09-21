@@ -72,9 +72,9 @@ func initConfig() {
 		cobra.CheckErr(err)
 
 		// Search config in home directory with name ".go-toolbox-cobra" (without extension).
-		viper.AddConfigPath(home)
+		viper.AddConfigPath(home + "/.go-toolbox-cobra")
 		viper.SetConfigType("yaml")
-		viper.SetConfigName(".go-toolbox-cobra")
+		viper.SetConfigName("config")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
