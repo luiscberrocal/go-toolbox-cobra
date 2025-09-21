@@ -9,17 +9,25 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var (
+	urlPath string
+)
+
 // pingCmd represents the ping command
 var pingCmd = &cobra.Command{
 	Use:   "ping",
-	Short: "Ping is a pallete to ping",
+	Short: "This ping a remote url.",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("ping called!")
+		cmd.Help()
 	},
 }
 
 func init() {
+	pingCmd.Flags().StringVarP(&urlPath, "url", "u", "", "Url to ping")
+	if err := pingCmd.MarkFlagRequired("url"); err != nil {
+		fmt.Println(err)
+	}
 
 	// Here you will define your flags and configuration settings.
 
