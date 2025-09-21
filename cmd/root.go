@@ -9,6 +9,7 @@ import (
 
 	"github.com/luiscberrocal/go-toolbox-cobra/cmd/info"
 	"github.com/luiscberrocal/go-toolbox-cobra/cmd/net"
+	"github.com/luiscberrocal/go-toolbox-cobra/config"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -45,6 +46,7 @@ func addCommandPalettes() {
 }
 
 func init() {
+	cobra.OnInitialize(config.LoadConfig)
 	cobra.OnInitialize(initConfig)
 	addCommandPalettes()
 

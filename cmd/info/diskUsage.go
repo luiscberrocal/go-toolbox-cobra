@@ -8,6 +8,7 @@ import (
 
 	"github.com/ricochet2200/go-disk-usage/du"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // diskUsageCmd represents the diskUsage command
@@ -22,7 +23,8 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		usage := du.NewDiskUsage(".")
-		fmt.Printf("%v", usage)
+		fmt.Printf("%v\n", usage)
+		fmt.Printf("Default domain: %v", viper.GetString("DEFAULT_DOMAIN"))
 	},
 }
 
