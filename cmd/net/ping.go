@@ -5,13 +5,32 @@ package net
 
 import (
 	"fmt"
+	"net/http"
+	"time"
 
 	"github.com/spf13/cobra"
 )
 
 var (
 	urlPath string
+	client  = http.Client{
+		Timeout: 2 * time.Second,
+	}
 )
+
+func ping(domain string) (int, error) {
+	url := "https://" + domain
+	req, err := http.NewRequest("HEAD", url, nil)
+	if err != nil {
+		return 0, err
+	}
+	resp, err := client.Do(req)
+	if err != nil {
+		return 0, err
+	}
+	resp.Body.Close()
+	return resp.StatusCode, nil
+}
 
 // pingCmd represents the ping command
 var pingCmd = &cobra.Command{
