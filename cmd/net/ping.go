@@ -15,7 +15,7 @@ var pingCmd = &cobra.Command{
 	Short: "Ping is a pallete to ping",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("ping called")
+		fmt.Println("ping called!")
 	},
 }
 
