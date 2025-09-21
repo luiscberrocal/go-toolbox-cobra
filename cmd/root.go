@@ -6,6 +6,7 @@ package cmd
 import (
 	"os"
 
+	"github.com/luiscberrocal/go-toolbox-cobra/cmd/info"
 	"github.com/luiscberrocal/go-toolbox-cobra/cmd/net"
 	"github.com/spf13/cobra"
 )
@@ -36,6 +37,7 @@ func Execute() {
 
 func addCommandPalettes() {
 	rootCmd.AddCommand(net.NetCmd)
+	rootCmd.AddCommand(info.InfoCmd)
 }
 
 func init() {
