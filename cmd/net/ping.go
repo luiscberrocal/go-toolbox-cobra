@@ -38,7 +38,11 @@ var pingCmd = &cobra.Command{
 	Short: "This ping a remote url.",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Help()
+		if resp, err := ping(urlPath); err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println(resp)
+		}
 	},
 }
 
