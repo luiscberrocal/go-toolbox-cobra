@@ -6,8 +6,8 @@ package cmd
 import (
 	"os"
 
-	"github.com/spf13/cobra"
 	"github.com/luiscberrocal/go-toolbox-cobra/cmd/net"
+	"github.com/spf13/cobra"
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -34,7 +34,7 @@ func Execute() {
 	}
 }
 
-func addCommandPalettes(){
+func addCommandPalettes() {
 	rootCmd.AddCommand(net.NetCmd)
 }
 
@@ -52,5 +52,3 @@ func init() {
 
 	addCommandPalettes()
 }
-
-

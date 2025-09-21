@@ -19,6 +19,8 @@ var NetCmd = &cobra.Command{
 
 func init() {
 
+	NetCmd.AddCommand(pingCmd)
+
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
